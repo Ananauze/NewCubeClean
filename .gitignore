@@ -1,0 +1,18 @@
+*.userprefs
+*.unityproj
+*.csproj
+*.tmp
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ========== Visual Studio Code ==========
+.vscode/
+.history/
+*.code-workspace
+
+# ========== OS files ==========
+.DS_Store
+Thumbs.db
