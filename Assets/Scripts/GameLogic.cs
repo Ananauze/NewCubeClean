@@ -8,6 +8,9 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Exploder _exploder;
 
+    private int _minCubeCount = 2;
+    private int _maxCubeCount = 6;
+
     private void OnEnable()
     {
         _inputHandler.MouseClick += HandleClick;
@@ -23,12 +26,12 @@ public class GameLogic : MonoBehaviour
         Cube clickedCube = _raycaster.GetCubeUnderCursor(mousePosition);
         if (clickedCube == null) return;
 
-        // проверка деления
         if (Random.value <= clickedCube.DivisionChance)
         {
             List<Rigidbody> newRigidbodies = new List<Rigidbody>();
 
-            int count = Random.Range(2, 7);
+            int count = Random.Range(_minCubeCount, _maxCubeCount + 1);
+
             for (int i = 0; i < count; i++)
             {
                 Cube newCube = _spawner.SpawnCube(clickedCube);
